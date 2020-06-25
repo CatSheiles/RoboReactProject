@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import CardList from './CardList';
-import SearchBox from './SearchBox';
-import Scroll from './Scroll';
+import CardList from '../component/CardList';
+import SearchBox from '../component/SearchBox';
+import Scroll from '../component/Scroll';
 import './App.css';
 
 //STATE describes app and changes value of searchbox and input
@@ -26,8 +26,8 @@ class App extends Component {
         this.setState({ searchfield: event.target.value })
     }
     render() {
-        const filteredRobots = this.state.robots.filter(robots =>{
-            return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+        const filteredRobots = this.state.robots.filter(robot =>{
+            return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
         })
 //if you had hundreds/thousands of users you can do this to speed reaction time up
         if (this.state.robots.length === 0) {
