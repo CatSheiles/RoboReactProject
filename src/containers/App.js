@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CardList from '../component/CardList';
 import SearchBox from '../component/SearchBox';
 import Scroll from '../component/Scroll';
+import ErrorBoundry from '../component/ErrorBoundry';
 import './App.css';
 
 //STATE describes app and changes value of searchbox and input
@@ -38,7 +39,10 @@ class App extends Component {
                     <h1 className='f1'>RoboFriends</h1>
                     <SearchBox searchChange={this.onSearchChange} />
                     <Scroll>
-                    <CardList robots={filteredRobots}/>
+                        <ErrorBoundry>
+                            <CardList robots={filteredRobots} />
+                        </ErrorBoundry>
+
                     </Scroll>
                 </div>
             );
